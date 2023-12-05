@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:weather_app/data/assets.dart';
+import 'package:weather_app/services/location_Provider.dart';
 import 'package:weather_app/utilities/appText.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,6 +12,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    Provider.of<LocationProvider>(context, listen: false).determinePosition();
+  }
+
   bool _clicked = false;
   @override
   Widget build(BuildContext context) {
