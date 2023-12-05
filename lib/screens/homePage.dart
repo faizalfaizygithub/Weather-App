@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final locationProvider = Provider.of<LocationProvider>(context);
     return SafeArea(
         child: Scaffold(
       extendBodyBehindAppBar: true,
@@ -62,36 +63,45 @@ class _HomePageState extends State<HomePage> {
                 : const SizedBox.shrink(),
             Container(
               height: 80,
-              child: ListTile(
-                leading: const Icon(
-                  Icons.location_pin,
-                  size: 35,
-                  color: Colors.red,
-                ),
-                title: AppText(
-                  data: 'Melattur',
-                  size: 23,
-                  color: Colors.white,
-                  fw: FontWeight.w700,
-                ),
-                subtitle: AppText(
-                  data: 'Good Evening',
-                  size: 20,
-                  color: Colors.white,
-                ),
-                trailing: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      _clicked = !_clicked;
-                    });
-                  },
-                  icon: const Icon(
-                    Icons.search,
-                    size: 29,
+              child: Consumer<LocationProvider>(
+                  builder: (context, locationProvider, child) {
+                var locationCity;
+                if (locationProvider.currentLocationName != null) {
+                  locationCity = locationProvider.currentLocationName!.locality;
+                } else {
+                  locationCity = 'Unknown Location';
+                }
+                return ListTile(
+                  leading: const Icon(
+                    Icons.location_pin,
+                    size: 35,
+                    color: Colors.red,
+                  ),
+                  title: AppText(
+                    data: locationCity,
+                    size: 23,
+                    color: Colors.white,
+                    fw: FontWeight.w700,
+                  ),
+                  subtitle: AppText(
+                    data: 'Good Evening',
+                    size: 20,
                     color: Colors.white,
                   ),
-                ),
-              ),
+                  trailing: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        _clicked = !_clicked;
+                      });
+                    },
+                    icon: const Icon(
+                      Icons.search,
+                      size: 29,
+                      color: Colors.white,
+                    ),
+                  ),
+                );
+              }),
             ),
             Align(
               alignment: const Alignment(0, -0.36),
