@@ -6,7 +6,13 @@ class AppText extends StatelessWidget {
   Color? color;
   FontWeight? fw;
   TextAlign? align;
-  AppText({required this.data, this.size, this.color, this.fw, this.align});
+  AppText(
+      {super.key,
+      required this.data,
+      this.size,
+      this.color,
+      this.fw,
+      this.align});
 
   @override
   Widget build(BuildContext context) {

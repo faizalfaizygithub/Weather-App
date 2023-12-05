@@ -45,6 +45,8 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       height: 30,
                       child: TextFormField(
+                        style: TextStyle(color: Colors.white, fontSize: 23),
+                        keyboardType: TextInputType.text,
                         decoration: const InputDecoration(
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
