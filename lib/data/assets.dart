@@ -1,16 +1,23 @@
 //background
 
-List<String> background = [
-  'assets/img/bg1.jpg',
-  'assets/img/bg2.jpg',
-];
+Map<String, dynamic> background = {
+  "Clouds": "assets/img/clouds.jpg",
+  "Thunder": "assets/img/lightining.webp",
+  "Clear": "assets/img/clear.jpg",
+  "Drizzle": "assets/img/drizzle.jpg",
+  "Rain": "assets/img/rainog.jpg",
+};
 
-List<String> imagePath = [
-  'assets/img/sunn.png',
-  'assets/img/snow.png',
-  'assets/img/rain1.png',
-];
-String temppic = 'assets/img/temp2.jpg';
+Map<String, dynamic> imagePath = {
+  "Clear": "assets/img/sunn.png",
+  "Cloud-lightining": "assets/img/lighticon.jpg",
+  "Clouds": "assets/img/cloudicon.webp",
+  "Drizzle": "assets/img/drizzleicon.webp",
+  "Mist": "assets/img/misticon.png",
+  "Snow": "assets/img/snow.png",
+  "Rain": "assets/img/rain1.png",
+};
+
 String temphighpic = 'assets/img/tempicon.png';
 String templowpic = 'assets/img/templow.png';
 String sunpic = 'assets/img/sunpic.png';
