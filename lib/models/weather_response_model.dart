@@ -126,12 +126,14 @@ class Weather {
 }
 
 class Main {
-  int? temp;
+  double? temp;
   double? feelsLike;
   double? tempMin;
   double? tempMax;
   int? pressure;
   int? humidity;
+  int? seaLevel;
+  int? grndLevel;
 
   Main(
       {this.temp,
@@ -139,7 +141,9 @@ class Main {
       this.tempMin,
       this.tempMax,
       this.pressure,
-      this.humidity});
+      this.humidity,
+      this.seaLevel,
+      this.grndLevel});
 
   Main.fromJson(Map<String, dynamic> json) {
     temp = json['temp'];
@@ -148,6 +152,8 @@ class Main {
     tempMax = json['temp_max'];
     pressure = json['pressure'];
     humidity = json['humidity'];
+    seaLevel = json['sea_level'];
+    grndLevel = json['grnd_level'];
   }
 
   Map<String, dynamic> toJson() {
@@ -158,6 +164,8 @@ class Main {
     data['temp_max'] = this.tempMax;
     data['pressure'] = this.pressure;
     data['humidity'] = this.humidity;
+    data['sea_level'] = this.seaLevel;
+    data['grnd_level'] = this.grndLevel;
     return data;
   }
 }
@@ -165,18 +173,21 @@ class Main {
 class Wind {
   double? speed;
   int? deg;
+  double? gust;
 
-  Wind({this.speed, this.deg});
+  Wind({this.speed, this.deg, this.gust});
 
   Wind.fromJson(Map<String, dynamic> json) {
     speed = json['speed'];
     deg = json['deg'];
+    gust = json['gust'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['speed'] = this.speed;
     data['deg'] = this.deg;
+    data['gust'] = this.gust;
     return data;
   }
 }

@@ -12,8 +12,9 @@ class LocationService {
           return placemarks[0];
         }
       } catch (e) {
-        print('Error fetching location name');
+        print("Error fetching location name");
       }
+
       return null;
     }
   }
