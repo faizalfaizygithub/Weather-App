@@ -255,7 +255,7 @@ class _HomePageState extends State<HomePage> {
                                     fw: FontWeight.w600,
                                   ),
                                   AppText(
-                                    data: "${formattedSunrise} PM",
+                                    data: "${formattedSunrise} AM",
                                     color: Colors.white,
                                     size: 10,
                                     fw: FontWeight.w600,
